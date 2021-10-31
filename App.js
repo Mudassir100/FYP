@@ -6,6 +6,7 @@ import LogInScreen from './src/screens/LogInScreen';
 
 export default function App() {
   return (
+    
     <View style={styles.container}>
       <LogInScreen/>
     </View>
