@@ -6,8 +6,12 @@ import EmailBar from '../components/EmailBar';
 import PasswordBar from '../components/PasswordBar';
 import RetypePasswordBar from '../components/RetypePasswordBar';
 import SignUpSubmitBar from '../components/SignUpSubmitBar';
+//import { NavigationContainer } from '@react-navigation/native';
+//import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import LogInScreen from './src/screens/LogInScreen';
 
-const SignUpScreen = () => {
+
+const SignUpScreen = ({navigation}) => {
     const [name, setName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');

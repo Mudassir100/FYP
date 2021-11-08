@@ -1,20 +1,40 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-// import SignUpScreen from './src/screens/SignUpScreen';
+import {StyleSheet, Text, View, Button} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SignUpScreen from './src/screens/SignUpScreen';
 import LogInScreen from './src/screens/LogInScreen';
 
 
-export default function App() {
+function HomeScreen({navigation}) {
   return (
-    
-    <View style={styles.container}>
-      <LogInScreen/>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+
+      <Button
+        title="Go to Sign Up"
+        onPress={() => navigation.navigate('Sign Up')}
+      />
+      <Button
+        title="Go to Log In"
+        onPress={() => navigation.navigate('Log In')}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    margin: 20,
-  },
-});
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Sign Up" component={SignUpScreen} />
+          <Stack.Screen name="Log In" component={LogInScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
