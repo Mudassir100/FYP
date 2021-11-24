@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "186996997817",
+    "project_id": "boamechanix",
+    "storage_bucket": "boamechanix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186996997817:android:3eb4c0d771c9b89a0f2568",
+        "android_client_info": {
+          "package_name": "com.fyp_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186996997817-a9hgdlq295jhttigdrk788936br7jq2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlk7KSJg8eaeAmDm9DemB0fhBxYHX5Shc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186996997817-a9hgdlq295jhttigdrk788936br7jq2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,9 +6,9 @@ import EmailBar from '../components/EmailBar';
 import PasswordBar from '../components/PasswordBar';
 import RetypePasswordBar from '../components/RetypePasswordBar';
 import SignUpSubmitBar from '../components/SignUpSubmitBar';
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createNativeStackNavigator } from '@react-navigation/native-stack';
-//import LogInScreen from './src/screens/LogInScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import auth from '@react-native-firebase/auth';
 
 
 const SignUpScreen = ({navigation}) => {
@@ -17,7 +17,27 @@ const SignUpScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [retypePassword, setRetypePassword] = useState('');
-    
+
+    const signUp = (email, password) => {
+        auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then(() => {
+            navigation.navigate('DashBoard');
+//            console.log(navigation);
+          })
+          .catch(error => {
+            if (error.code === 'auth/email-already-in-use') {
+              console.log('That email address is already in use!');
+            }
+
+            if (error.code === 'auth/invalid-email') {
+              console.log('That email address is invalid!');
+            }
+
+            console.error(error);
+          });
+          }
+
     return (
     <View style = {styles. background}>
         <Text style = {styles.headingStyle}>Sign up</Text>
@@ -55,7 +75,7 @@ const SignUpScreen = ({navigation}) => {
         onTermSubmit = {() => { console.log("Re-type Password term submitted");}}
         />
 
-        <SignUpSubmitBar onTermSubmit = {() => {console.log("Clicked...");}}/>
+        <SignUpSubmitBar onTermSubmit = {() => {signUp(email, password)}}/>
     </View>
     )
 }
